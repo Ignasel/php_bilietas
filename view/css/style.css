@@ -1,0 +1,22 @@
+h3{
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.ticket{
+    background-color: #005cbf;
+}
+.modal-dialog{
+    height: 100%;
+    width: 100%;
+}
+
+.modal-content, .modal-body{
+    height: 100%;
+    width: 100%;
+}
+.modal-backdrop{
+    background-color: #ffffff;
+    position: unset;
+}
