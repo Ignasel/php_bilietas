@@ -5,12 +5,24 @@ h3{
 }
 
 .ticket{
-    background-color: #005cbf;
+    background-color: #b3b7bb;
 }
-.modal-dialog{
-    height: 100%;
+
+
+@media (min-width: 576px){
+    .modal-dialog {
+        max-width: 900px;
+}
+}
+.flightNumber{
     width: 100%;
 }
+
+.ticketInfo .row{
+    border: black 1px solid;
+    margin: 0;
+}
+
 
 .modal-content, .modal-body{
     height: 100%;

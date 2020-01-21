@@ -39,9 +39,9 @@ if (isset($_POST['submit'])) {
     } else {
         $_POST['lastName']= trim(htmlspecialchars($_POST['lastName']));
     }
-    if (!preg_match('/(\d{11})$/',
+    if(!preg_match( "/^([3-6]\d{10})$/",
         trim(htmlspecialchars($_POST['idCode'])))){
-        $validation_errors[] = "Pasitikrinkite! Asmens kodą turi sudaryti 11 skaitmenų ir turi b8ti tinkamas formatas";
+        $validation_errors[] = "Pasitikrinkite! Asmens kodą turi sudaryti 11 skaitmenų ir turi buti tinkamas formatas";
     } else {
         $_POST['idCode'] = trim(htmlspecialchars($_POST['idCode']));
     }
@@ -97,7 +97,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="form-group">
                     <select name="inputHome" class="form-control">
-                        <option selected disabled>---Kryptis atgal----</option>
+                        <option selected disabled>---Is kur skrenda----</option>
                         <?php foreach ($IsKurSkrenda as $isKur): ?>
                             <option value="<?= $isKur; ?>"><?= $isKur; ?></option>
                         <?php endforeach; ?>
@@ -164,12 +164,10 @@ if (isset($_POST['submit'])) {
             <div class="modal-body">
                 <div class="container ticketContainer">
                 <div class="row ticket">
-                    <div class="row ticketHead">
-                    </div>
                     <div class="row ticketInfo">
                         <div class="col-8 mainInfo">
                             <div class="row directionsInfo">
-                                <div class="flightNumber">Skrydžio numeris: <?=$flightNumber?></div>
+                                <div class="row flightNumber">Skrydžio numeris: <?=$flightNumber?></div>
                                 <div class="col time"><?php echo "Bilieto uždakymo data: " . date("Y/m/d")?></div>
                                 <div class="col fromTo"><p>IŠ<br>Į</p></div>
                                 <div class="col directions"><?=$inputHome?><br><?=$direction?></div>
@@ -184,15 +182,15 @@ if (isset($_POST['submit'])) {
                                 <div class="col passangerLastName">Keleivio pavardė: <?=$lastName?></div>
                                 <div class="col passangerId">ID: <?=$idCode?></div>
                             </div>
+                            <div class="row pastabos">
+                                Pastabos: <?=$pastaba?>
+                            </div>
                         </div>
                         <div class="col-4 priceInfo align-self-start">
                             <div class="row priceHead">Kaina ir moksečiai</div>
                             <div class="row pricing">
                                 <div class="col priceTag">
                                     <p>Kelionės kaina: <?=$justPrice?> € <br>Bagažas: <?=$weightPrice?> €<br>PVM: 21%</p>
-                                </div>
-                                <div class="col priceAmount">
-                                    <p><br><br></p>
                                 </div>
                             </div>
                             <div class="row priceTotal">
